@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सुर-सरगम लिरिक्स | भक्ति और संगीत के बोल</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #e8f5e9 50%, #fff3e0 100%);
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-card-hover: rgba(255, 255, 255, 0.72);
+            --glass-border: rgba(255, 255, 255, 0.75);
+            --header-bg: rgba(255, 255, 255, 0.55);
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --accent-color: #2e7d32;
+            --accent-glow: rgba(46, 125, 50, 0.25);
+            --btn-bg: rgba(255, 255, 255, 0.7);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+        }
+
+        body.dark-mode {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #064e3b 100%);
+            --glass-bg: rgba(30, 41, 59, 0.55);
+            --glass-card-hover: rgba(30, 41, 59, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --header-bg: rgba(15, 23, 42, 0.65);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --accent-color: #4ade80;
+            --accent-glow: rgba(74, 222, 128, 0.2);
+            --btn-bg: rgba(255, 255, 255, 0.12);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* लिक्विड ग्लास बैकग्राउंड गोले */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(75px);
+            z-index: -1;
+            animation: float 12s infinite ease-in-out alternate;
+        }
+        .orb-1 {
+            width: 320px;
+            height: 320px;
+            background: rgba(76, 175, 80, 0.45);
+            top: -60px;
+            left: -60px;
+        }
+        .orb-2 {
+            width: 360px;
+            height: 360px;
+            background: rgba(255, 193, 7, 0.35);
+            bottom: 5%;
+            right: -80px;
+            animation-delay: -4s;
+        }
+        .orb-3 {
+            width: 260px;
+            height: 260px;
+            background: rgba(56, 189, 248, 0.35);
+            top: 45%;
+            left: 15%;
+            animation-delay: -8s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 40px) scale(1.15); }
+        }
+
+        /* नेविगेशन हेडर */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-icon {
+            font-size: 22px;
+            background: var(--accent-color);
+            color: #fff;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .theme-btn {
+            background: var(--btn-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        .theme-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* मुख्य कंटेनर */
+        .main-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 25px 16px 50px;
+        }
+
+        /* हीरो सेक्शन (स्वागत और सर्च बॉक्स) */
+        .hero-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            border-radius: 24px;
+            padding: 36px 24px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .hero-section h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .hero-section p {
+            margin: 0 auto 22px;
+            max-width: 550px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* सर्च बार */
+        .search-box {
+            max-width: 520px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 46px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            background: var(--btn-bg);
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        /* कैटेगरी टैब्स */
+        .categories {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(12px);
+            font-family: inherit;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        /* गानों की ग्रिड (Cards Grid) */
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 20px;
+        }
+
+        .song-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            background: var(--glass-card-hover);
+            border-color: var(--accent-color);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 10px;
+            background: var(--accent-glow);
+            color: var(--accent-color);
+        }
+
+        .card-icon {
+            font-size: 20px;
+        }
+
+        .song-card h3 {
+            margin: 0 0 6px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .song-card .artist {
+            margin: 0 0 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .song-card .preview {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0 0 16px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: var(--btn-bg);
+            border: 1px solid var(--glass-border);
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .song-card:hover .read-btn {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            display: none;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* मोबाइल स्क्रीन के लिए सेटिंग्स */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 17px;
+            }
+            .hero-section {
+                padding: 26px 16px;
+            }
+            .hero-section h2 {
+                font-size: 22px;
+            }
+            .songs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <header>
+        <a href="index.html" class="brand">
+            <div class="brand-icon">🎵</div>
+            <h1>सुर-सरगम लिरिक्स</h1>
+        </a>
+        <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- हीरो और सर्च सेक्शन -->
+        <section class="hero-section">
+            <span class="hero-badge">✨ शुद्ध बोल • वीडियो • सरगम</span>
+            <h2>भक्ति भजन और मधुर गीतों के बोल</h2>
+            <p>अपने पसंदीदा भजन, आरती और गीतों के शुद्ध हिंदी लिरिक्स पढ़िए और वीडियो के साथ गुनगुनाइए।</p>
+            
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" onkeyup="filterSongs()" placeholder="भजन या गायक का नाम खोजें (जैसे: राधारमणं)...">
+            </div>
+        </section>
+
+        <!-- कैटेगरी बटन -->
+        <div class="categories">
+            <button class="cat-btn active" onclick="filterCategory('all', this)">सभी (All)</button>
+            <button class="cat-btn" onclick="filterCategory('bhajan', this)">भक्ति भजन</button>
+            <button class="cat-btn" onclick="filterCategory('aarti', this)">आरती</button>
+            <button class="cat-btn" onclick="filterCategory('classical', this)">शास्त्रीय / सरगम</button>
+        </div>
+
+        <!-- गानों की लिस्ट (Cards) -->
+        <div class="songs-grid" id="songsGrid">
+            
+            <!-- कार्ड 1: राधारमणं हरे हरे (आपका पहला पेज) -->
+            <a href="radharamanam.html" class="song-card" data-category="bhajan">
+                <div>
+                    <div class="card-top">
+                        <span class="card-tag">भक्ति भजन</span>
+                        <span class="card-icon">🦚</span>
+                    </div>
+                    <h3>राधारमणं हरे हरे</h3>
+                    <p class="artist">श्री इंद्रेश उपाध्याय जी</p>
+                    <p class="preview">बृज जन प्रियतम बालमुकुन्दम, राधारमणं हरे हरे...</p>
+                </div>
+                <div class="read-btn">बोल और वीडियो देखें →</div>
+            </a>
+
+            <!-- कार्ड 2: उदाहरण के लिए (आप बाद में इसे बदल सकते हैं) -->
+            <a href="#" class="song-card" data-category="bhajan">
+                <div>
+                    <div class="card-top">
+                        <span class="card-tag">भक्ति भजन</span>
+                        <span class="card-icon">🌸</span>
+                    </div>
+                    <h3>अच्युतम केशवं कृष्ण दामोदरं</h3>
+                    <p class="artist">पारंपरिक भजन</p>
+                    <p class="preview">अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभं...</p>
+                </div>
+                <div class="read-btn">जल्द आ रहा है...</div>
+            </a>
+
+            <!-- कार्ड 3: उदाहरण के लिए -->
+            <a href="#" class="song-card" data-category="aarti">
+                <div>
+                    <div class="card-top">
+                        <span class="card-tag">आरती</span>
+                        <span class="card-icon">🪔</span>
+                    </div>
+                    <h3>श्री बांके बिहारी तेरी आरती गाऊं</h3>
+                    <p class="artist">श्री वृंदावन आरती</p>
+                    <p class="preview">श्री बांके बिहारी तेरी आरती गाऊं, हे गिरिधर तेरी आरती गाऊं...</p>
+                </div>
+                <div class="read-btn">जल्द आ रहा है...</div>
+            </a>
+
+        </div>
+
+        <!-- जब कोई सर्च रिजल्ट न मिले -->
+        <div class="no-results" id="noResults">
+            <h3>😔 कोई भजन नहीं मिला</h3>
+            <p>कृपया किसी दूसरे नाम से खोजने का प्रयास करें।</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 सुर-सरगम लिरिक्स • भक्ति और संगीत का संगम
+    </footer>
+
+    <script>
+        // डार्क / लाइट मोड
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('themeBtn');
+            btn.innerHTML = document.body.classList.contains('dark-mode') ? '☀️ Light' : '🌙 Dark';
+        }
+
+        // सर्च फ़ंक्शन
+        function filterSongs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.song-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // कैटेगरी फ़िल्टर फ़ंक्शन
+        function filterCategory(category, btnElement) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            const cards = document.querySelectorAll('.song-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+  </html>
+                                                                                
