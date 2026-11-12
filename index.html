@@ -5,56 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>सुर-सरगम लिरिक्स (Sur Sargam Lyrics)</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            /* ग्लास इफ़ेक्ट को उभारने के लिए सॉफ्ट बैकग्राउंड */
+            /* ग्लास इफ़ेक्ट को उभारने के लिए सॉफ्ट ग्रेडिएंट बैकग्राउंड */
             background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 50%, #84fab0 100%);
             min-height: 100vh;
             color: #222;
         }
         header {
             /* हरे रंग में लिक्विड ग्लास इफ़ेक्ट */
-            background: rgba(76, 175, 80, 0.55);
+            background: rgba(76, 175, 80, 0.65);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             color: white;
             text-align: center;
-            padding: 15px 0;
+            padding: 15px 10px;
             position: sticky;
             top: 0;
             z-index: 100;
             text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
         }
         .container {
             max-width: 800px;
             margin: 25px auto;
             padding: 25px;
             /* कंटेनर में लिक्विड ग्लास इफ़ेक्ट */
-            background: rgba(255, 255, 255, 0.45);
+            background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.75);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
             border-radius: 16px;
         }
-        .video-container {
+        .song-title {
             text-align: center;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        /* मोबाइल और डेस्कटॉप दोनों के लिए रिस्पॉन्सिव 16:9 वीडियो बॉक्स */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .video-container iframe {
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         .lyrics {
             white-space: pre-line;
             font-size: 18px;
             text-align: center;
             font-weight: 500;
+            word-wrap: break-word;
+        }
+
+        /* खास मोबाइल स्क्रीन (600px से छोटी) के लिए सेटिंग्स */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 18px;
+            }
+            .container {
+                margin: 15px 12px;
+                padding: 18px 14px;
+                border-radius: 14px;
+            }
+            .song-title {
+                font-size: 18px;
+            }
+            .lyrics {
+                font-size: 16px;
+                line-height: 1.7;
+            }
         }
     </style>
 </head>
@@ -66,11 +110,11 @@
 
     <div class="container">
         <!-- गाने का नाम -->
-        <h2 style="text-align: center;">radharamanam hare hare</h2>
+        <h2 class="song-title">radharamanam hare hare</h2>
 
-        <!-- यूट्यूब वीडियो का एम्बेड लिंक -->
+        <!-- यूट्यूब वीडियो का रिस्पॉन्सिव एम्बेड लिंक -->
         <div class="video-container">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/_CWcBWSKItk?si=1fa3NWZn2jS7jUxc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/_CWcBWSKltk?si=1fa3NWZn2jS7jUxc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <!-- गाने के बोल -->
